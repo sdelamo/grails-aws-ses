@@ -21,7 +21,7 @@ Brief summary/description of the plugin.
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/grails-aws-ses"
+    def documentation = "https://github.com/sdelamo/grails-aws-ses"
 
     // Extra (optional) plugin metadata
 
