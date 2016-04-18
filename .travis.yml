@@ -4,6 +4,8 @@ jdk:
 - oraclejdk8
 before_script:
 - rm -rf target
+- chmod +x gradlew
+- chmod +x travis-build.sh
 script: ./travis-build.sh
 env:
   global:
