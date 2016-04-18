@@ -55,9 +55,8 @@ task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
 grailsPublish {
-    // TODO: Provide values here
-    user = 'user'
-    key = 'key'
+    user = 'user' // Not required if you defined a BINTRAY_USER var
+    key = 'key'   // Not required if you defined a BINTRAY_KEY var
     githubSlug = 'sdelamo/grails-aws-ses'
     license {
         name = 'Apache-2.0'
