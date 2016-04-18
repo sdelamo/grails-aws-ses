@@ -1,0 +1,74 @@
+buildscript {
+    ext {
+        grailsVersion = project.grailsVersion
+    }
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+    }
+}
+
+version "0.1"
+group "grails.aws.ses"
+
+apply plugin:"idea"
+apply plugin:"org.grails.grails-plugin"
+apply plugin:"org.grails.grails-plugin-publish"
+
+ext {
+    grailsVersion = project.grailsVersion
+    gradleWrapperVersion = project.gradleWrapperVersion
+}
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.grails:grails-core"
+    console "org.grails:grails-console"
+    profile "org.grails.profiles:plugin:3.1.5"
+    provided "org.grails:grails-plugin-services"
+    testCompile "org.grails:grails-plugin-testing"
+
+    compile 'org.grails:grails-validation:3.1.5'
+    compile 'com.amazonaws:aws-java-sdk-ses:1.10.69'
+
+    testCompile 'javax.mail:mail:1.4.4'
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleWrapperVersion
+}
+grailsPublish {
+    // TODO: Provide values here
+    user = 'user'
+    key = 'key'
+    githubSlug = 'sdelamo/grails-aws-ses'
+    license {
+        name = 'Apache-2.0'
+    }
+    title = "Grails AWS SES"
+    desc = "Full plugin description"
+    developers = [johndoe:"sdelamo"]
+    portalUser = ""
+    portalPassword = ""    
+}
+
+jar {
+    exclude 'org/grails/plugins/awsses/tests/**'
+}
