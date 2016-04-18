@@ -64,7 +64,7 @@ grailsPublish {
     }
     title = "Grails AWS SES"
     desc = "Full plugin description"
-    developers = [johndoe:"sdelamo"]
+    developers = [sdelamo:"Sergio del Amo"]
     portalUser = ""
     portalPassword = ""    
 }
